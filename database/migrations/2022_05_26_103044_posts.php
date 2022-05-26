@@ -13,9 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('user', function (Blueprint $table) {
-            $table->text('created_date')->first()->change();
-        });
+        Schema::drop('posts');
     }
 
     /**

@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('best_table', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('text');
+            $table->string('str1');
+            $table->string('str2');
+            $table->dateTime('dateTime');
         });
     }
 
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('best_table');
     }
 };

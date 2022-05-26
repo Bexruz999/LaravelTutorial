@@ -13,11 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user', function (Blueprint $table) {
-            $table->text('имя');
-            $table->text('фамиля');
-            $table->date('дата_рождения');
-            $table->date('created_date');
+        Schema::table('posts', function (Blueprint $table) {
+            
         });
     }
 
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('new_task');
     }
 };

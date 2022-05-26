@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('user', function (Blueprint $table) {
-            $table->text('yangi', 100);
+        Schema::create('theBest_table', function (Blueprint $table) {
+            $table->string('str1');
+            $table->string('str2');
+            $table->string('str3');
+            $table->string('str4');
         });
     }
 

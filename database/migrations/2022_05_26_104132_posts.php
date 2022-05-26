@@ -13,11 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('statya', function (Blueprint $table) {
-            $table->text('загаловок');
-            $table->text('text');
-            $table->date('created_date');
-        });
+        Schema::dropColumns('theBest_table', ['str1', 'str2']);
     }
 
     /**
@@ -27,6 +23,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+
     }
 };

@@ -13,9 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('user', function (Blueprint $table) {
-            $table->renameColumn('имя', 'title');
-        });
+        Schema::rename('new_task', 'olwfwr');
     }
 
     /**
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('new_task');
     }
 };

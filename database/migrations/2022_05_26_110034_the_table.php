@@ -13,9 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('user', function (Blueprint $table) {
-            $table->dropColumn('yangi');
-        });
+        Schema::dropColumns('best_table', ['id', 'str2']);
     }
 
     /**
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('best_table');
     }
 };

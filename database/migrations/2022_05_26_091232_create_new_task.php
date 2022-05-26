@@ -13,16 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-
+        Schema::create('posts', function (Blueprint $table) {
+            $table->string('sbrh');
+        });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-
+        Schema::dropIfExists('posts');
     }
 };
