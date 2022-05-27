@@ -63,6 +63,24 @@
                 @endif
             @endforeach
         </table>
+        <ul>
+            @foreach($posts as $post)
+                @foreach($post as $value)
+                    <li>
+                        {{ $value }}
+                    </li>
+                @endforeach
+            @endforeach
+        </ul>
 
+        <ul>
+            @foreach($db_users as $db_user)
+                @foreach($db_user as $value)
+                    <li>
+                        {{ $value }}
+                    </li>
+                @endforeach
+            @endforeach
+        </ul>
 
 </x-layout>

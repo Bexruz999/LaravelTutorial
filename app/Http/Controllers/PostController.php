@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 
 
 class PostController extends Controller
 {
 
     public function task() {
+
         $str = '<b>если вы видите это текст то вы старше 18 лет.</b>';
         $age = 18;
         $arr = ['bir', 'ikki', 'uch', "to'rt"];
@@ -86,6 +88,26 @@ class PostController extends Controller
             ],
         ];
 
+        $posts = DB::table('posts')
+            ->select(['id', 'likes'])
+            ->where('id','>', 0)
+            ->orWhere(function ($query) {
+                $query
+                    ->where('id', '>', 0)
+                    ->where('id', '<10', 0);
+            })
+        ->get();
+
+        $db_users = DB::table('users')
+            ->skip(0)
+            ->take(10)
+            ->get();
+
+        $id = DB::table('users')
+        ->leftJoin('posts', 'posts.id', '=', 'users.id')->get();
+
+        echo $id;
+
         return view('post.task', [
             'str'       => $str,
             'age'       => $age,
@@ -95,7 +117,9 @@ class PostController extends Controller
             'users'     => $users,
             'employees' => $employees,
             'links'     => $links,
-            'employes2' => $employees2
+            'employes2' => $employees2,
+            'posts'     => $posts,
+            'db_users'      => $db_users
         ]);
     }
 

@@ -13,11 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('theBest_table', function (Blueprint $table) {
-            $table->string('str1');
-            $table->string('str2');
-            $table->string('str3');
-            $table->string('str4');
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('email');
+            $table->integer('age');
+            $table->integer('salary');
+            $table->dateTime('created_at');
         });
     }
 
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('users');
     }
 };
